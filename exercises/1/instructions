@@ -1,0 +1,6 @@
+Complete exercise_1.cpp. Upload your .cpp file to Blackboard
+
+NOTE: To compile your code you will need to run the following:
+g++ exercise_1.cpp
+If it compiles correctly you can test using the following:
+./a.out
