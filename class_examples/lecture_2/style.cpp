@@ -22,7 +22,7 @@ int main() {
   int total_rounds;
 
   // Constants start with a k and do not have underscores
-  int kTotalRounds = 3;
+  const int kTotalRounds = 3;
 
   // 80 Lines ends at the @ and should never be longer than this               @
 
