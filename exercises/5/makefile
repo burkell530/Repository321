@@ -1,12 +1,12 @@
 # Makefile for Exercise 5
-CC = /usr/bin/g++
+CXX = /usr/bin/g++
 MAIN = exercise_5
 FILE = exercise_5.cpp
-OPTIONS = -Wall
+CXXFLAGS = -Wall
 
 # Type 'make' to create the executable
 ${MAIN}: ${FILE}
-	${CC} ${OPTIONS} $? -o $@
+	${CXX} ${CXXFLAGS} $? -o $@
 	@echo 'Use ./${MAIN} to run'
 
 #type 'style' to check your code style
