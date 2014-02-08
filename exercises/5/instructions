@@ -1,0 +1,19 @@
+Complete the functions given in the exercise.cpp file.
+
+The Function comments given do NOT follow class documentation guidelines. Please
+rewrite them to conform to class documentation style.
+
+A Makefile has been included with this exercise. Your options are:
+make (Tries to compile your exercise)
+make style (Checks your file for some styling mistakes. Note this does not check
+            variable / function names)
+make clean (Removes the executable)
+
+Please note you need to follow programming style guidelines for this exercise.
+
+Exercises having the following will lose 10% per category:
+- Code (such as output statements) not explicitly requried
+- Bad Programming Style (Variable Names, Formatting)
+
+Exercises that DO NOT COMPILE will receive a ZERO!
+
