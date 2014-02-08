@@ -1,0 +1,25 @@
+Git Commands to Run
+cd ~
+git init new_project
+cd new_project
+git status
+touch a
+git status
+git add a
+git status
+git commit -m'Adding first file!'
+git status
+echo "test" > a
+git status
+git add a
+git status
+echo "testing" > a
+git status
+git reset --hard
+git status
+git mv a b
+git status
+git commit -m'Renaming a -> b'
+git rm b
+git status
+git commit -m'Removing file b'
