@@ -71,7 +71,7 @@ using std::string;
 
 /*
  * function name: BuildMessage
- * parameters: string (call-by-value), bool (call-by-value)
+ * parameters: string (const call-by-reference), bool (const call-by-reference)
  * default arguments: string = "" (empty string), bool = false
  * return type: string
  *
