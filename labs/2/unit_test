@@ -1,0 +1,133 @@
+loc='unit_test_files/'
+utpass='PASSED UNIT TEST '
+utfail='FAILED UNIT TEST '
+test=7
+# Tests 1-6
+for i in $(seq 1 6)
+do
+  if ./new_cat ${loc}${i}.txt > ${loc}nut${i}
+  then
+    if diff ${loc}nut${i} ${loc}${i}.txt > /dev/null
+    then
+      echo ${utpass}${i} ./new_cat ${loc}${i}.txt
+    else
+      echo ${utfail}${i} ./new_cat ${loc}${i}.txt
+    fi
+  else
+    echo ${utfail}${i} ./new_cat ${loc}${i}.txt
+  fi
+done
+# Test 7
+if ./new_cat ${loc}1.txt ${loc}2.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}1.txt ${loc}2.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt
+fi
+# Test 8
+test=$(expr $test + 1)
+if ./new_cat ${loc}2.txt ${loc}1.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}2.txt ${loc}1.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}2.txt ${loc}1.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}2.txt ${loc}1.txt
+fi
+# Test 9
+test=$(expr $test + 1)
+if ./new_cat ${loc}3.txt ${loc}4.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}3.txt ${loc}4.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}3.txt ${loc}4.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}3.txt ${loc}4.txt
+fi
+# Test 10
+test=$(expr $test + 1)
+if ./new_cat ${loc}4.txt ${loc}3.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}4.txt ${loc}3.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}4.txt ${loc}3.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}4.txt ${loc}3.txt
+fi
+# Test 11
+test=$(expr $test + 1)
+if ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt
+fi
+# Test 12
+test=$(expr $test + 1)
+if ./new_cat ${loc}6.txt ${loc}5.txt ${loc}4.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}6.txt ${loc}5.txt ${loc}4.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}6.txt ${loc}5.txt ${loc}4.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}6.txt ${loc}5.txt ${loc}4.txt
+fi
+# Test 13
+test=$(expr $test + 1)
+if ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6.txt > ${loc}nut${test}
+then
+  if diff ${loc}nut${test} ${loc}ut${test} > /dev/null
+  then
+    echo ${utpass}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6.txt
+  else
+    echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6.txt
+  fi
+else
+  echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6.txt
+fi
+# Test 14
+test=$(expr $test + 1)
+if ./new_cat ${loc}1 >& /dev/null
+then
+  echo ${utfail}${test} ./new_cat ${loc}1
+else
+  echo ${utpass}${test} ./new_cat ${loc}1
+fi
+# Test 15
+test=$(expr $test + 1)
+if ./new_cat ${loc}1.txt ${loc}2 >& /dev/null
+then
+  echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2
+else
+  echo ${utpass}${test} ./new_cat ${loc}1.txt ${loc}2
+fi
+# Test 16
+test=$(expr $test + 1)
+if ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6 >& /dev/null
+then
+  echo ${utfail}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6
+else
+  echo ${utpass}${test} ./new_cat ${loc}1.txt ${loc}2.txt ${loc}3.txt ${loc}4.txt ${loc}5.txt ${loc}6
+fi
