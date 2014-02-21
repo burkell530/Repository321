@@ -1,6 +1,7 @@
 loc='unit_test_files/'
 utpass='PASSED UNIT TEST '
 utfail='FAILED UNIT TEST '
+rm -rf ${loc}/nut*
 test=7
 # Tests 1-6
 for i in $(seq 1 6)
