@@ -1,0 +1,55 @@
+clear
+PS3='Please enter your choice: '
+options=("Compile All" "Run Structures" "Run Structure Concepts" "Run Class" "Run Member Functions" "Run Parameters and Return" "Run Encapsulation" "Run Accessors and Mutators" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "Run Structures")
+            make structures
+            ./structures.run
+            break
+            ;;
+        "Run Structure Concepts")
+            make structure_concepts
+            ./structure_concepts.run
+            break
+            ;;
+        "Run Class")
+            make class
+            ./class.run
+            break
+            ;;
+        "Run Member Functions")
+            make member_functions
+            ./member_functions.run
+            break
+            ;;
+        "Run Parameters and Return")
+            make parameters_return
+            ./parameters_return.run
+            break
+            ;;
+        "Run Encapsulation")
+            make encapsulation
+            ./encapsulation.run
+            break
+            ;;
+        "Run Accessors and Mutators")
+            make accessor_mutator
+            ./accessor_mutator.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done

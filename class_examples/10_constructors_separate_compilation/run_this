@@ -1,0 +1,45 @@
+clear
+PS3='Please enter your choice: '
+options=("Compile All" "Run Constructor" "Run Initializing and Overloading Constructors" "Run Separate Compilation" "Run Default Arguments" "Run Overloading Concepts" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "Run Constructor")
+            make constructor
+            ./constructor.run
+            break
+            ;;
+        "Run Initializing and Overloading Constructors")
+            make initial_overload
+            ./initial_overload.run
+            break
+            ;;
+        "Run Separate Compilation")
+            make separate_compilation
+            ./separate_compilation.run
+            break
+            ;;
+        "Run Default Arguments")
+            make default_arguments
+            ./default_arguments.run
+            break
+            ;;
+        "Run Overloading Concepts")
+            make overloading_concepts
+            ./overloading_concepts.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
