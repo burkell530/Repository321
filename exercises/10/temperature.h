@@ -13,7 +13,7 @@ using std::stringstream;
 
 
 /*
- * Class Converter.
+ * Class Temperature.
  * A class that converts temperatures. It will always internally store the value
  * in kelvin.
  */
@@ -52,20 +52,6 @@ class Temperature {
    */
   void SetTempFromKelvin(double kelvin);
 
-  /*
-   * The temperature will come in as Fahrenheit and this function will set the
-   * internal temp to this value, once converted to kelvin
-   * Formula: k = c + 273.15;
-   * @param double fahrenheit - The value (in fahrenheit) to set the internal
-   *                          - kelvin to.
-   */
-  void SetTempFromCelsius(double celsius);
-
-  /*
-   * Gets the internal temperature in Kelvin.
-   * @return double - The temperature in Kelvin
-   */
-  void SetTempFromFahrenheit(double fahrenheit);
 
   /*
    * The temperature will come in as Celsius and this function will set the
@@ -74,17 +60,33 @@ class Temperature {
    * @param double celsius - The value (in celsius) to set the internal kelvin
    *                       - to.
    */
+  void SetTempFromCelsius(double celsius);
+
+
+  /*
+   * The temperature will come in as Fahrenheit and this function will set the
+   * internal temp to this value, once converted to kelvin
+   * Formula: k = c + 273.15;
+   * @param double fahrenheit - The value (in fahrenheit) to set the internal
+   *                          - kelvin to.
+   */
+  void SetTempFromFahrenheit(double fahrenheit);
+
+  /*
+   * Gets the internal temperature in Kelvin.
+   * @return double - The temperature in Kelvin
+   */
   double GetTempAsKelvin() const;
 
   /*
-   * Returns the internal temp converted to celsius
+   * Returns the internal temp converted to Celsius
    * Formula: k - 273.15
-   * @return double - The temperature in Fahrenheit
+   * @return double - The temperature in Celsius
    */
   double GetTempAsCelsius() const;
 
   /*
-   * Returns the internal temp converted to fahrenheit
+   * Returns the internal temp converted to Fahrenheit
    * Formula: ((c * 9.0) / 5) + 32;
    * @return double - The temperature in Fahrenheit
    */
