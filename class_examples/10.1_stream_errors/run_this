@@ -1,0 +1,30 @@
+clear
+PS3='Please enter your choice: '
+options=("Compile All" "Run Stream Errors" "Run MIN / MAX" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "Run Stream Errors")
+            make stream_errors
+            ./stream_errors.run
+            break
+            ;;
+        "Run MIN / MAX")
+            make type_min_max
+            ./type_min_max.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
