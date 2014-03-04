@@ -1,0 +1,40 @@
+clear
+PS3='Please enter your choice: '
+options=("Compile All" "Run Binary Overload" "Run Unary Overload" "Run Member Overload" "Run Friend Functions" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "Run Binary Overload")
+            make binary_overload
+            ./binary_overload.run
+            break
+            ;;
+        "Run Unary Overload")
+            make unary_overload
+            ./unary_overload.run
+            break
+            ;;
+        "Run Member Overload")
+            make member_overload
+            ./member_overload.run
+            break
+            ;;
+        "Run Friend Functions")
+            make friend_functions
+            ./friend_functions.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
