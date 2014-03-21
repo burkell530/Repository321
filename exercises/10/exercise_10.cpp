@@ -71,8 +71,8 @@ void UnitTest() {
   Temperature temp8(5, '5');
   Test(temp8.GetTempAsKelvin() == 5, "Constructor(5, '5') / GetTempAsKelvin()");
   Test(temp8.ToString('c') == "-268.15 Celsius", "ToString('c')");
-  Test(temp8.ToString('K') == "5 Kelvin", "ToString('K')");
-  Test(temp8.ToString('k') == "5 Kelvin", "ToString('k')");
+  Test(temp8.ToString('K') == "5.00 Kelvin", "ToString('K')");
+  Test(temp8.ToString('k') == "5.00 Kelvin", "ToString('k')");
   Test(temp8.ToString('F') == "-450.67 Fahrenheit", "ToString('F')");
   Test(temp8.ToString('f') == "-450.67 Fahrenheit", "ToString('f')");
   Test(temp8.ToString('1') == "Invalid Unit", "ToString('1')");

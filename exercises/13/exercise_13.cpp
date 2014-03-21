@@ -77,6 +77,95 @@ int main() {
   return 0;
 }
 
+/*
+ * Allocate memory for a dynamic string with specified contents.
+ * @param string contents - The desired contents of the dynamic string
+ * @return string* - A pointer to the newly allocated string
+ */
+string* MakeDynoString(string contents) {
+  string *p1 = new string(contents);
+  return p1;
+}
+
+/*
+ * Free the memory associated with a dynamic string and NULL out its pointer.
+ * @param string *& the_string - A pointer (passed by reference) to a dynamic
+ *                               string
+ */
+void ClearDynoString(string *&the_string) {
+  delete the_string;
+  the_string = NULL;
+}
+
+/*
+ * Count the number of alphabetic and numeric characters in a string and return
+ * its length.
+ * @uses isdigit() and isalpha()
+ * @param string* the_string - A pointer to the string in which characters will
+ *                             be counted
+ * @param unsigned int &alpha - Contains the count of alphabetic characters in
+ *                              the string on return
+ * @param unsinged int &num - Contains the count of numeric characters in the
+ *                            string on return
+ * @return unsigned int - Contains the length of the_string
+ * @throw The message "NULL STRING REFERENCE" if the_string is NULL
+ */
+unsigned int CountChars(string* theString, unsigned int &alpha,
+                        unsigned int &num) {
+  alpha = 0;
+  num = 0;
+  if (theString == 0)
+    throw "NULL STRING REFERENCE";
+  for (unsigned int i = 0; i < theString->length(); i++)
+    if (isdigit(theString->at(i)))
+      num++;
+    else if (isalpha(theString->at(i)))
+      alpha++;
+  return theString->length();
+}
+
+/*
+ * Find a word inside of a string.
+ * @uses String Member function find()
+ * @uses String Member Variable npos
+ * @param string *the_string - The string in which the search for a word will
+ *                             take place
+ * @param string the_word - The word to look for inside of the_string
+ * @return bool - True if the_word is found in the_string, else false
+ * @throw The message "NULL STRING REFERENCE" if the_string is NULL
+ */
+bool FindWord(string *the_string, string the_word) {
+  bool found_word_ = false;
+  if (the_string == 0)
+    throw "NULL STRING REFERENCE";
+    std::size_t found = (the_string->find(the_word));
+    if (found == string::npos)
+    return false;
+  else
+    found_word_ = true;
+    return found_word_;
+}
+
+/*
+ * Replace one word in a string with another word.
+ * @uses String Member Function find()
+ * @uses String Member Function replace()
+ * @param string *the_string -  The string that will have a word replaced
+ * @param string old_word  - The word inside of the_string being replaced
+ * @param string new_word - The word that will be used to replace old_word in
+ *                          the_string
+ * @return bool - True if old_word was found and replaced, else return false
+ * @throw The message "NULL STRING REFERENCE" if the_string is NULL
+ */
+bool ReplaceWord(string* the_string, string old_word, string new_word) {
+  if (FindWord(the_string, old_word)) {
+  the_string->replace(the_string->find(old_word), old_word.length(), new_word);
+  return true;
+  } else {
+      return false;
+  }
+}
+
 // CODE HERE -- FUNCTION DEFINITION
 
 // For testing (DO NOT ALTER)

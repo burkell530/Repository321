@@ -1,6 +1,6 @@
 /*
  * Name        : temperature.h
- * Author      : FILL IN
+ * Author      : Lauri Burke
  * Description : Class Header File
  */
 
@@ -9,11 +9,13 @@
 using std::string;
 using std::stringstream;
 
+#ifndef LAURI_TEMPERATURE_H
+#define LAURI_TEMPERATURE_H
 // ADD HEADER GUARD HERE
 
 
 /*
- * Class Temperature.
+ * Class Converter.
  * A class that converts temperatures. It will always internally store the value
  * in kelvin.
  */
@@ -52,6 +54,20 @@ class Temperature {
    */
   void SetTempFromKelvin(double kelvin);
 
+  /*
+   * The temperature will come in as Fahrenheit and this function will set the
+   * internal temp to this value, once converted to kelvin
+   * Formula: k = c + 273.15;
+   * @param double fahrenheit - The value (in fahrenheit) to set the internal
+   *                          - kelvin to.
+   */
+  void SetTempFromCelsius(double celsius);
+
+  /*
+   * Gets the internal temperature in Kelvin.
+   * @return double - The temperature in Kelvin
+   */
+  void SetTempFromFahrenheit(double fahrenheit);
 
   /*
    * The temperature will come in as Celsius and this function will set the
@@ -60,33 +76,17 @@ class Temperature {
    * @param double celsius - The value (in celsius) to set the internal kelvin
    *                       - to.
    */
-  void SetTempFromCelsius(double celsius);
-
-
-  /*
-   * The temperature will come in as Fahrenheit and this function will set the
-   * internal temp to this value, once converted to kelvin
-   * Formula: k = c + 273.15;
-   * @param double fahrenheit - The value (in fahrenheit) to set the internal
-   *                          - kelvin to.
-   */
-  void SetTempFromFahrenheit(double fahrenheit);
-
-  /*
-   * Gets the internal temperature in Kelvin.
-   * @return double - The temperature in Kelvin
-   */
   double GetTempAsKelvin() const;
 
   /*
-   * Returns the internal temp converted to Celsius
+   * Returns the internal temp converted to celsius
    * Formula: k - 273.15
-   * @return double - The temperature in Celsius
+   * @return double - The temperature in Fahrenheit
    */
   double GetTempAsCelsius() const;
 
   /*
-   * Returns the internal temp converted to Fahrenheit
+   * Returns the internal temp converted to fahrenheit
    * Formula: ((c * 9.0) / 5) + 32;
    * @return double - The temperature in Fahrenheit
    */
@@ -113,4 +113,4 @@ class Temperature {
   double kelvin_;
 };
 
-// REST OF HEADER GUARD GOES HERE
+#endif/* LAURI_TEMPERATURE_H*/

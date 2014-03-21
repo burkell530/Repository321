@@ -13,6 +13,7 @@ using std::endl;
 using std::string;
 using std::map;
 
+
 /*
  * Open and read the contents of a text file. Each line of the
  * file will contain a single integer of possible values 10, 20,
@@ -29,7 +30,7 @@ using std::map;
  * @return bool - True if filename was successfully opened and processed,
  *                else false
  */
-bool ProcessFile(string filename);
+bool ProcessFile(string textfile);
 
 // For testing (DO NOT ALTER)
 map<int, int> counters;
@@ -49,7 +50,39 @@ int main() {
   // This ends program execution
   return 0;
 }
-
+bool ProcessFile(string textfile) {
+    ifstream fin;
+    bool processed = false;
+    fin.open(textfile.c_str());
+    if (fin.fail()) {
+      cout << "Error opening/creating one of the files. \n";
+      return false;
+    }
+    int number;
+    while ( fin >> (number))
+    switch (number) {
+      case 10:
+        OnTen();
+      break;
+      case 20:
+        OnTwenty();
+      break;
+      case 30:
+        OnThirty();
+      break;
+      case 40:
+        OnForty();
+      break;
+      case 50:
+        OnFifty();
+      break;
+      default:
+        OnError();
+      break;
+    }
+  processed = true;
+  return processed;
+}
 // CODE HERE -- FUNCTION DEFINITION
 
 

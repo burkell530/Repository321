@@ -1,6 +1,6 @@
 /*
  * Name        : exercise_5.cpp
- * Author      : FILL IN
+ * Author      : Lauri Burke
  * Description : Practicing Functions
  */
 
@@ -14,75 +14,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
-/*
- * function name: Hello
- * parameters: none
- * default arguments: n/a
- * return type: void
- *
- * Display "Hello world!" to stdout (no newline character after)
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
-/*
- * function name: PrintMessage
- * parameters: string message (const call-by-reference)
- * default arguments: none
- * return type: void
- *
- * Display message to stdout (no newline character after)
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
-/*
- * function name: GetAnswer
- * parameters: none
- * default arguments: n/a
- * return type: int
- *
- * Return the value 42
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
-/*
- * function name: FindLarger
- * parameters: int (const call-by-reference), int (const call-by-reference)
- * default arguments: none
- * return type: int
- *
- * Return the larger of the two parameter values. Should work correctly
- * if the values are equivalent.
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
-/*
- * function name: GetStats
- * parameters: string (const call-by-reference), int (call-by-reference),
- *             int (call-by-reference)
- * default arguments: none
- * return type: int
- *
- * Return the length of string. On return second parameter (int) should contain
- * a count of the number of uppercase characters of first parameter (string),
- * third parameter (int) should contain a count of the number of lowercase
- * characters in the first parameter (string)
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
-/*
- * function name: BuildMessage
- * parameters: string (const call-by-reference), bool (const call-by-reference)
- * default arguments: string = "" (empty string), bool = false
- * return type: string
- *
- * Return the string "Message: STRING", where STRING is replaced by the value of
- * the first parameter (string). If second parameter (bool) is true, convert
- * first parameter (string) to all uppercase letters before concatenating it
- * with "Message: ". If first parameter is the empty string, return
- * "Message: empty".
- */
-// CODE HERE (FUNCTION PROTOTYPE)
-
+void Hello();
+void PrintMessage(const string &message);
+int GetAnswer();
+int FindLarger (const int &kvalue1, const int &kvalue2);
+int GetStats (const string &kstat1, int &kstat2,  int &kstat3);
+string BuildMessage (const string &kmessage = "", const bool &kevaluate = false);
 
 // For testing (DO NOT ALTER)
 void UnitTest();
@@ -95,10 +32,66 @@ int main() {
   // This ends program execution
   return 0;
 }
-
-// CODE HERE (FUNCTION DEFINITIONS)
-
-
+ //void function to print "Hello World!".
+void Hello() {
+  cout << "Hello world!";
+}
+//void function to print a string named message.
+void PrintMessage(const string &message) {
+  cout << message;
+}
+//function to return the integer 42
+int GetAnswer() {
+  return 42;
+}
+//function to return the larger of two parameter values.
+int FindLarger (const int &kvalue1, const int &kvalue2) {
+  if (kvalue1 > kvalue2)
+    return kvalue1;
+  else
+    return kvalue2;
+  }
+/*function to return the length of a string containing a count of the number of
+  uppercase characters of the first parameter. The third parameter to contain a
+ count of the number of lowercase characters in the first parameter string.
+*/
+int GetStats (const string &kstat1, int &kstat2, int &kstat3) {
+    kstat2 = 0;
+    kstat3 = 0;
+  
+  for (unsigned int i = 0; i <= kstat1.length(); i++) {
+  if (isalpha(kstat1[i])) {
+  if (isupper(kstat1[i]))
+      kstat2 += 1;
+     else 
+      kstat3 += 1;
+    }
+  }
+  return kstat1.length();
+}
+/*function to return the string "Message: STRING, where STRING is replaced by 
+  the value of the first parameter (string) If second parameter (bool) is true, 
+  convert first parameter (string) to all uppercase letters before concatenating
+  it with "Message: ". If first parameter is the empty string, return "Message:
+  empty".
+*/
+string BuildMessage (const string &kmessage, const bool &kevaluate) {
+std::stringstream ss;
+string copy = kmessage;
+  if (kmessage == "")
+    return "Message: empty";
+  if (kevaluate == true) {
+    for (unsigned int i = 0; i < kmessage.length(); i++) {
+     copy[i] = toupper(kmessage[i]);
+    }
+    ss << "Message: " << copy;
+    return ss.str();
+  }//end of else if
+  else {
+    ss << "message: " << kmessage;
+    return ss.str();
+  }
+}
 // For testing (DO NOT ALTER)
 void UnitTest() {
   string temp = "This unit test will test some of your code:\n";

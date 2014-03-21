@@ -73,13 +73,14 @@ class Money {
    */
   friend const Money operator +(const Money& amount1, const Money& amount2);
 
+
   /*
    * Overload of binary - operator. This is a friend function.
    * @param Money amount1 - The object to subtract from
    * @param Money amount2 - The object to be subtracted
    * @return Money - The result of the subtraction
    */
-  // FILL IN
+  friend const Money operator -(const Money& amount1, const Money& amount2);
 
   /*
    * Overload of == operator. This is a friend function.
@@ -87,14 +88,14 @@ class Money {
    * @param Money amount2 - The second object to compare
    * @return bool - True if the objects have the same values, otherwise false
    */
-  // FILL IN
+  friend bool operator ==(const Money& amount1, const Money& amount2);
 
   /*
    * Overload of unary - operator. This is a friend function.
    * @param Money amount - The object to negate
    * @return Money - The result of the negation of the two member variables
    */
-  // FILL IN
+  friend const Money operator -(const Money& amount);
 
   /*
    * Overload of << operator.
@@ -106,6 +107,7 @@ class Money {
    * @param Money amount - The Money object to output from.
    * @return ostream& - The ostream object to allow for chaining of <<
    */
+  friend ostream& operator << (ostream &out, const Money &amount);
 
  private:
   int dollars_;

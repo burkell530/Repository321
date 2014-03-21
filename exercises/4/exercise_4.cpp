@@ -59,7 +59,11 @@ int main() {
  *                  floating-point value
  */
 string MakeString(string label, double value, char separator) {
-  // CODE HERE
+    
+  stringstream ss;
+  ss << label << " " << separator  << " " << value;
+  return ss.str();
+  
 }
 
 /*
@@ -71,7 +75,11 @@ string MakeString(string label, double value, char separator) {
  *                when value is length 0 or value is length > 1
  */
 char StringToChar(string value) {
-  // CODE HERE
+  if (value.length() == 0 || value.length() > 1){
+    return '\0';
+  }
+  else
+  return value.at(0);
 }
 
 /*
@@ -108,6 +116,16 @@ int StringToInt(string value) {
  */
 double StringToDouble(string value) {
   // CODE HERE
+  double dvalue = 0;
+  stringstream converter(value);
+  converter.exceptions(ios_base::failbit);
+
+  try {
+    converter >> dvalue;
+  } catch (ios_base::failure f) {
+  }
+
+  return dvalue;
 }
 
 /*
@@ -123,6 +141,14 @@ double StringToDouble(string value) {
  */
 bool StringToBool(string value) {
   // CODE HERE
+  if (value.length() == 0){
+    return false; 
+  } 
+  if (value.at(0) == 't' || value.at(0) == 'T'){
+    return true;
+  }
+  else
+    return false;
 }
 
 // For testing (DO NOT ALTER)
