@@ -16,6 +16,7 @@ using std::string;
  * @return string* - A pointer to the newly allocated string
  */
 string* MakeDynoString(string contents);
+// Changing exercise 
 
 /*
  * Free the memory associated with a dynamic string and NULL out its pointer.
