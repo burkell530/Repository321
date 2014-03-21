@@ -9,5 +9,5 @@ using namespace std;
 // your assignment is to change this to say "Hello, world!"
 //
 int main() {
-    cout << "Hello, world!" << endl;
+    cout << "Super Hello, world!" << endl;
 }
