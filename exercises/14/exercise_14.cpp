@@ -182,7 +182,7 @@ void UnitTest() {
   cout << endl << endl;
   main[0] = 9, main[1] = 1, main[2] = 5, main[3] = 2, main[4] = 7;
   cout << "Selection Sort Expected\n" << "--------------------\n"
-       << "9 1\n9 2\n9 9\n\n";
+       << "9 1\n9 2\n9 7\n\n";
   cout << "Selection Sort Actual\n" << "--------------------\n";
   SelectionSort(main, kSize);
   cout << string(temp.length() - 1, '-') << endl;
