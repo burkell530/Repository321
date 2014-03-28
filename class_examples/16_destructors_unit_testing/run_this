@@ -1,0 +1,48 @@
+clear
+PS3='Please enter your choice: '
+ONE='Run Dynamic Objects and Arrays'
+ONE_FILE='dynamic_objects_arrays'
+TWO='Run Destructors'
+TWO_FILE='destructor'
+THREE='Run Dynamic Objects in Dynamic Arrays'
+THREE_FILE='dynamic_objects_in_dynamic_array'
+FOUR='Run Unit Testing'
+FOUR_FILE='unit_test'
+options=("Compile All" "$ONE" "$TWO" "$THREE" "$FOUR" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "$ONE")
+            make $ONE_FILE
+            ./${ONE_FILE}.run
+            break
+            ;;
+        "$TWO")
+            make $TWO_FILE
+            ./${TWO_FILE}.run
+            break
+            ;;
+        "$THREE")
+            make $THREE_FILE
+            ./${THREE_FILE}.run
+            break
+            ;;
+        "$FOUR")
+            make $FOUR_FILE
+            ./${FOUR_FILE}.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
