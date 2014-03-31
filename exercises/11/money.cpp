@@ -85,5 +85,4 @@ const Money operator -(const Money& amount1, const Money& amount2) {
     return out;
   }
 
-// CLASS FUNCTION DEFINITIONS GO HERE
 

@@ -2,6 +2,7 @@
  * Name        : exercise_13.cpp
  * Author      : FILL IN
  * Description : Working with Pointers and Dynamic Objects
+ * 
  */
 #include <iostream>
 #include <string>
@@ -115,13 +116,16 @@ unsigned int CountChars(string* theString, unsigned int &alpha,
                         unsigned int &num) {
   alpha = 0;
   num = 0;
-  if (theString == 0)
+  if (theString == 0) {
     throw "NULL STRING REFERENCE";
-  for (unsigned int i = 0; i < theString->length(); i++)
-    if (isdigit(theString->at(i)))
+  }
+  for (unsigned int i = 0; i < theString->length(); i++) {
+    if (isdigit(theString->at(i))) {
       num++;
-    else if (isalpha(theString->at(i)))
+    } else if (isalpha(theString->at(i))) {
       alpha++;
+    }
+  }
   return theString->length();
 }
 
@@ -136,15 +140,17 @@ unsigned int CountChars(string* theString, unsigned int &alpha,
  * @throw The message "NULL STRING REFERENCE" if the_string is NULL
  */
 bool FindWord(string *the_string, string the_word) {
-  bool found_word_ = false;
-  if (the_string == 0)
-    throw "NULL STRING REFERENCE";
-    std::size_t found = (the_string->find(the_word));
-    if (found == string::npos)
-    return false;
-  else
-    found_word_ = true;
-    return found_word_;
+  bool found_word_ = false; // sets up a bool
+  if (the_string == 0) { // if the string is null
+    throw "NULL STRING REFERENCE"; // throw message
+    std::size_t found = (the_string->find(the_word));  // found = the_word
+    if (found == string::npos) { // if the word was not found
+      return false; // return false
+    } else {  // else
+      found_word_ = true;
+      return found_word_;
+    }
+  }
 }
 
 /*
@@ -160,10 +166,10 @@ bool FindWord(string *the_string, string the_word) {
  */
 bool ReplaceWord(string* the_string, string old_word, string new_word) {
   if (FindWord(the_string, old_word)) {
-  the_string->replace(the_string->find(old_word), old_word.length(), new_word);
-  return true;
+    the_string->replace(the_string->find(old_word), old_word.length(), new_word);
+    return true;
   } else {
-      return false;
+    return false;
   }
 }
 
