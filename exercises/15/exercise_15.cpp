@@ -54,6 +54,7 @@ int main() {
   return 0;
 }
 
+<<<<<<< HEAD
 int InsertionSort(int the_array[], unsigned int size) {
   int times_looped = 0;
   for (unsigned int i = 0; i <= (size - 1); ++i) {
@@ -91,15 +92,22 @@ int ShellSort(int the_array[], unsigned int size) {
   return times_looped;
 }
 
+=======
+// CODE HERE -- FUNCTION DEFINITION
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
 void SwapValues(int &value_1, int &value_2) {
   // DO NOT ALTER THE NEXT 3 LINES!!!
   if (GRADER) {
     cout << value_1 << " " << value_2 << endl;
   }
+<<<<<<< HEAD
   int temp_value = 0;
   temp_value = value_1;
   value_1 = value_2;
   value_2 = temp_value;
+=======
+  // Code SWAP Algorithm Here
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
 }
 
 // For testing (DO NOT ALTER)

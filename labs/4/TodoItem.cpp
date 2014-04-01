@@ -1,4 +1,4 @@
-#include "TodoItem.cpp"
+#include "TodoItem.h"
 
 /* Constructor:
 * Has three parameters in the following order and sets those 
@@ -7,23 +7,41 @@
 * Integer for the priority, defaults to 1 
 * Boolean for completion status, defaults to false 
 */
-TodoItem::TodoItem(); // declaration of constructor:
- 
+// declaration of constructor, initializing 
+TodoItem::TodoItem() {
+  description_ = ""; // not sure if this is supposed to be empty string
+  priority_ = 1;
+  bool completed_ = false;
+}
 // Destructor is empty
-TodoItem::~TodoItem();
+TodoItem::~TodoItem(){
+    
+}
 
 // Public member functions:
 string TodoItem::ToFile();
 
 // Accessors:
-void TodoItem::SetDescription(string description);
-void TodoItem::SetPriority(int priority);
-void TodoItem::SetCompleted(bool completed);
+void TodoItem::SetDescription(string description) {
+  description_ = description;
+}
+void TodoItem::SetPriority(int priority) {
+  priority_ = priority;
+}
+void TodoItem::SetCompleted(bool completed) {
+  completed_ = completed;
+}
 
 // Mutators:
-string TodoItem::GetDescription() const;
-int TodoItem::GetPriority() const;
-bool TodoItem::GetCompleted() const;
+string TodoItem::GetDescription() const {
+  return description_;
+}
+int TodoItem::GetPriority() const {
+  return priority_;
+}
+bool TodoItem::GetCompleted() const {
+  return completed_;
+}
 
 // Friend function allows for chaining
 ostream& operator << (ostream &out, const TodoItem &amount);//not 'amount' parameter

@@ -166,7 +166,10 @@ bool FindWord(string *the_string, string the_word) {
  */
 bool ReplaceWord(string* the_string, string old_word, string new_word) {
   if (FindWord(the_string, old_word)) {
-    the_string->replace(the_string->find(old_word), old_word.length(), new_word);
+    size_t insertion_point = the_string->find
+    size_t num_of_characters_to_delete = old_word.length;
+    string characters_to_insert = new_word;
+    the_string->replace(insertion_point, num_of_characters_to_delete, characters_to_insert);
     return true;
   } else {
     return false;

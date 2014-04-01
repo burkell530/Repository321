@@ -1,6 +1,10 @@
 /*
  * Name        : exercise_14.cpp
+<<<<<<< HEAD
  * Author      : Lauri Burke
+=======
+ * Author      : FILL IN
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
  * Description : Working with Bubble and Selection Sort
  */
 #include <iostream>
@@ -62,6 +66,7 @@ int main() {
 }
 
 // CODE HERE -- FUNCTION DEFINITION
+<<<<<<< HEAD
 int BubbleSort(int the_array[], unsigned int size) {
   unsigned int times_looped = 0;
   for (unsigned int i = size - 1; i >= 1; --i) {
@@ -108,16 +113,22 @@ int SelectionSort(int the_array[], unsigned int size) {
   }
 return times_looped;
 }
+=======
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
 
 void SwapValues(int &value_1, int &value_2) {
   // DO NOT ALTER THE NEXT 3 LINES!!!
   if (GRADER) {
     cout << value_1 << " " << value_2 << endl;
   }
+<<<<<<< HEAD
   int temp_value = 0;
   temp_value = value_1;
   value_1 = value_2;
   value_2 = temp_value;
+=======
+  // Code SWAP Algorithm Here
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
 }
 
 // For testing (DO NOT ALTER)
@@ -231,7 +242,11 @@ void UnitTest() {
   cout << endl << endl;
   main[0] = 9, main[1] = 1, main[2] = 5, main[3] = 2, main[4] = 7;
   cout << "Selection Sort Expected\n" << "--------------------\n"
+<<<<<<< HEAD
        << "9 1\n9 2\n9 9\n\n";
+=======
+       << "9 1\n9 2\n9 7\n\n";
+>>>>>>> 17de0cbd6096520ba0026b8a385a9ec3d66f1cff
   cout << "Selection Sort Actual\n" << "--------------------\n";
   SelectionSort(main, kSize);
   cout << string(temp.length() - 1, '-') << endl;
