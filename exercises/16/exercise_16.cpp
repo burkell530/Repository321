@@ -29,7 +29,7 @@ class ShoppingList {
    * and item_count to 0.
    * @param unsigned int max_items - The desired size of the items_ array
    */
-  ShoppingList(unsigned int max_items_);
+  ShoppingList(unsigned int max_items);
 
   /*
    * Destructor.
