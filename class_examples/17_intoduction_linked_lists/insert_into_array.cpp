@@ -35,10 +35,27 @@ int main() {
   Output(values, list_size);
 
   // What and where we want to insert
-  int position_to_insert = 1;
-  int value_to_insert = 3;
+  int position_to_insert = 3;
+  int value_to_insert = 10;
 
-  // CODE FOR INSERTION
+  // To be done in class...
+
+  // Make sure we aren't leaving gaps and the location is at least 0 and there
+  // is room to insert
+  if (position_to_insert > list_size || position_to_insert < 0) {
+    cerr << "That location is invalid!" << endl;
+  } else if (list_size >= list_capacity) {
+    cerr << "The list is full!" << endl;
+  } else {
+    // Shift all elements "down"
+    for (int i = list_size; i > position_to_insert; i--) {
+      values[i] = values[i - 1];
+    }
+    // Insert the value
+    values[position_to_insert] = value_to_insert;
+    // Increment the list size
+    list_size++;
+  }
 
   // Let's show the array values after
   cout << "After  Insertion: ";

@@ -36,7 +36,17 @@ int main() {
   // Where we want to delete
   int position_to_delete = 1;
 
-  // CODE FOR DELETION
+  // To be done in class...
+
+  // Make sure the position to delete is valid
+  if (position_to_delete >= 0 && position_to_delete < list_size) {
+    list_size--;
+    for (int i = position_to_delete; i < list_size; i++) {
+      values[i] = values[i + 1];
+    }
+  } else {
+    cerr << "That location is invalid!" << endl;
+  }
 
   // Let's show the array values after
   cout << "After  Deletion: ";
