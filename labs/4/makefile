@@ -1,20 +1,32 @@
 # Makefile for Lab 4
 CXX = /usr/bin/g++
-MAIN = unit_test
-CPP_FILES = todo_item.cpp todo_list.cpp  
-H_FILES = todo_item.h todo_list.h  
 CXXFLAGS = -Wall
 
+MAIN_LUKE = unit_test
+MAIN_UI = ui_test
+
+CPP_LUKE = todo_item.cpp todo_list.cpp  
+H_LUKE = todo_item.h todo_list.h
+
+CPP_UI = ${CPP_LUKE} todo_ui.cpp driver.cpp
+H_UI = ${H_LUKE} todo_ui.h driver.cpp
+
+ALL_STYLECHECK_FILES = ${CPP_UI} ${H_UI}
+
 # Type 'make' to create the executable
-${MAIN}: ${MAIN}.cpp ${H_FILES} ${CPP_FILES}
-	${CXX} ${CXXFLAGS} ${MAIN}.cpp ${CPP_FILES} -o $@
-	@echo 'Use ./${MAIN} to run'
+${MAIN_LUKE}: ${MAIN_LUKE}.cpp ${H_LUKE} ${CPP_LUKE}
+	${CXX} ${CXXFLAGS} ${MAIN_LUKE}.cpp ${CPP_LUKE} -o $@
+	@echo 'Use ./${MAIN_LUKE} to run'
+
+${MAIN_UI}: ${H_UI} ${CPP_UI}
+	${CXX} ${CXXFLAGS} ${CPP_UI} -o $@
+	@echo 'Use ./${MAIN_UI} to run'
 
 #type 'style' to check your code style
 style: ../../helpful_files/cpplint.py ${FILE} 
-	python $< --filter=-runtime/references,-legal/copyright,-readability/streams,-runtime/explicit,-build/header_guard,-build/include ${H_FILES} ${CPP_FILES}
+	python $< --filter=-runtime/references,-legal/copyright,-readability/streams,-runtime/explicit,-build/header_guard,-build/include ${ALL_STYLECHECK_FILES}
 
 # Clean-Up the executable
 clean:
-	rm -rf ${MAIN}
+	rm -rf ${MAIN_LUKE}
 	
