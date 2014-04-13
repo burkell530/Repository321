@@ -7,11 +7,12 @@
 
 #include "sl_list.h"
 #include "sl_node.h"
-
+#include <sstream>
 #include <iostream>
 using std::cout;
 using std::endl;
 using std::string;
+using std::stringstream;
 
 // For testing (DO NOT ALTER)
 void Test(bool test, string more_info = "");
