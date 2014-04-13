@@ -1,6 +1,6 @@
 /*
  * Name        : exercise_16.cpp
- * Author      : FILL IN
+ * Author      : Lauri Burke
  * Description : Working with a Dynamic Array in a Class
  */
 #include <iostream>
@@ -11,88 +11,24 @@ using std::cin;
 using std::endl;
 using std::string;
 
-/*
- * This class creates a Shopping List as a dynamic array of strings.
- */
 class ShoppingList {
  public:
-  /*
-   * Default constructor.
-   * Initializes max_items_ to 25, items_ to size max_items_
-   * and item_count_ to 0.
-   */
   ShoppingList();
-
-  /*
-   * Overloaded constructor.
-   * Initializes max_items_ to max_items, items_ to size max_items
-   * and item_count to 0.
-   * @param unsigned int max_items - The desired size of the items_ array
-   */
   ShoppingList(unsigned int max_items);
-
-  /*
-   * Destructor.
-   * Frees the memory associated with items_.
-   */
   ~ShoppingList();
-
-  /*
-   * Accessor for max_items_
-   * @return unsigned int - The maximum number of items in this ShoppingList
-   */
   unsigned int max_items() const;
-
-  /*
-   * Accessor for item_count_
-   * @return unsigned int - The count of number of items in this ShoppingList
-   */
   unsigned int item_count() const;
-
-  /*
-   * Place an item at a specified index in the array and increment the count of
-   * items in the array.
-   * @param string item - The item to be added to the array
-   * @return bool - True if the item can be added, otherwise return false
-   */
   bool AddItem(string item);
-
-  /*
-   * Retrieve the item at a specified index in the array.
-   * The first line of this function is an assertion to check to see if the
-   * index is valid.
-   * @param unsigned int index - The zero-based index of the item to be
-   *                             retrieved
-   * @return string - The value of the item at the specified index
-   */
   string GetItem(unsigned int index) const;
-
-  /*
-   * Retrieve a reference to the item at a specified index in the array.
-   * The first line of this function is an assertion to check to see if the
-   * index is valid.
-   * @param unsigned int index - The zero-based index of the item to be
-   *                             retrieved
-   * @return string& - A reference to the value of the item at the specified index
-   */
   string& GetItem(unsigned int index);
-
-  // Why Two GetItem with the same number/type of parameters?
-  // http://www.geeksforgeeks.org/function-overloading-and-const-functions/
-
-  /*
-   * Reset the items array by freeing its associated memory and re-allocating to
-   * a specified size.
-   * The first line of this function is an assertion to check to see if the
-   * parameter is greater than 0
-   * @param unsigned int max_items - The desired new max size of items_
-   */
   void Reset(unsigned int max_items);
 
  private:
-  string* items_;
-  unsigned int max_items_;
-  unsigned int item_count_;
+  void Initialize(unsigned int inCapacity);
+  void FreeList();
+  string* mItemsArray;
+  unsigned int mListCapacity;
+  unsigned int mNumberOfItemsOnList;
 };
 
 // For testing (DO NOT ALTER)
@@ -116,8 +52,118 @@ int main() {
   // This ends program execution
   return 0;
 }
+void ShoppingList::Initialize(unsigned int inCapacity) {
+  mListCapacity = inCapacity;
+  mItemsArray = new string[mListCapacity];
+  mNumberOfItemsOnList = 0;
+}
 
-// CODE HERE -- FUNCTION DEFINITIONS
+  /*
+   * Default constructor.
+   * Initializes mListCapacity to 25, mItemsArray to size mListCapacity
+   * and mNumberOfItemsOnList to 0.
+   */
+ShoppingList::ShoppingList() {
+  Initialize(25);
+}
+
+void ShoppingList::FreeList() {
+  if (mItemsArray != 0) {
+    mItemsArray = 0;
+  }
+}
+
+void ShoppingList::Reset(unsigned int inCapacityOfList) {
+  FreeList();
+  Initialize(inCapacityOfList);
+}
+
+  /*
+   * Overloaded constructor.
+   * Initializes mListCapacity to max_items, mItemsArray to size max_items
+   * and item_count to 0.
+   * @param unsigned int max_items - The desired size of the mItemsArray array
+   */
+ShoppingList::ShoppingList(unsigned int inCapacityOfList) {
+  Initialize(inCapacityOfList);
+}
+
+  /*
+   * Destructor.
+   * Frees the memory associated with mItemsArray.
+   */
+ShoppingList::~ShoppingList() {
+  FreeList();
+}
+
+  /*
+   * Accessor for mListCapacity
+   * @return unsigned int - The maximum number of items in this ShoppingList
+   */
+unsigned int ShoppingList::max_items() const {
+  return mListCapacity;
+}
+
+  /*
+   * Accessor for mNumberOfItemsOnList
+   * @return unsigned int - The count of number of items in this ShoppingList
+   */
+unsigned int ShoppingList::item_count() const {
+  return mNumberOfItemsOnList;
+}
+
+  /*
+   * Place an item at a specified index in the array and increment the count of
+   * items in the array.
+   * @param string item - The item to be added to the array
+   * @return bool - True if the item can be added, otherwise return false
+   */
+bool ShoppingList::AddItem(string inItemToAdd) {
+  if (mNumberOfItemsOnList < mListCapacity) {
+    mItemsArray[mNumberOfItemsOnList] = inItemToAdd;
+    mNumberOfItemsOnList++;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+  /*
+   * Retrieve the item at a specified index in the array.
+   * The first line of this function is an assertion to check to see if the
+   * index is valid.
+   * @param unsigned int index - The zero-based index of the item to be
+   *                             retrieved
+   * @return string - The value of the item at the specified index
+   */
+string ShoppingList::GetItem(unsigned int index) const {
+  assert(index >= 0 && index < mNumberOfItemsOnList);
+  return mItemsArray[index];
+}
+
+  /*
+   * Retrieve a reference to the item at a specified index in the array.
+   * The first line of this function is an assertion to check to see if the
+   * index is valid.
+   * @param unsigned int index - The zero-based index of the item to be
+   *                             retrieved
+   * @return string& - A reference to the value of the item at the specified index
+   */
+string& ShoppingList::GetItem(unsigned int index) {
+  assert(index >= 0 && index < mNumberOfItemsOnList);
+  return mItemsArray[index];
+}
+
+  // Why Two GetItem with the same number/type of parameters?
+  // http://www.geeksforgeeks.org/function-overloading-and-const-functions/
+
+  /*
+   * Reset the items array by freeing its associated memory and re-allocating to
+   * a specified size.
+   * The first line of this function is an assertion to check to see if the
+   * parameter is greater than 0
+   * @param unsigned int max_items - The desired new max size of mItemsArray
+   */
 
 
 // For testing (DO NOT ALTER)
