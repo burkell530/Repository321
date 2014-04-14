@@ -41,7 +41,18 @@ int main() {
 
   // To be done in class...
 
-  // CODE TO ADD CAPACITY
+  // Add Capacity
+  list_capacity += 5;
+  int *temp = new int[list_capacity]();
+  // Copy Values
+  for (int i = 0; i < list_size; i++)
+    temp[i] = values[i];
+  // Delete the old values array
+  delete[] values;
+  // Point values to temp
+  values = temp;
+  // NULL out temp
+  temp = NULL;
 
   // Let's show the array values after
   cout << "After  Adding Space: ";

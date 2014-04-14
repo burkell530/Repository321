@@ -9,6 +9,7 @@
 #include "sl_node.h"
 #include <sstream>
 #include <iostream>
+#include <sstream>
 using std::cout;
 using std::endl;
 using std::string;
