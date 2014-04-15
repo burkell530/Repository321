@@ -86,7 +86,6 @@ void UnitTest() {
   Test(list.GetItem(1)->ToFile() == "Go to Store@1@0", "GetItem(1)->ToFile()");
   Test(list.ToFile() == "Go to Store@1@0\n", "ToFile()");
   cout << "Testing Overloaded <<:\n" << list << endl;
-
   cout << "\n*****TodoList Member Functions with 2 Items*****\n";
   list.AddItem(new TodoItem(desc1, 2, true));
   Test(list.GetSize() == 2,

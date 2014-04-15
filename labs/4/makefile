@@ -5,8 +5,8 @@ CXXFLAGS = -Wall
 MAIN_LUKE = unit_test
 MAIN_UI = ui_test
 
-CPP_LUKE = todo_item.cpp todo_list.cpp  
-H_LUKE = todo_item.h todo_list.h
+CPP_LUKE = todo_item.cpp todo_list.cpp CinReader.cpp
+H_LUKE = todo_item.h todo_list.h CinReader.h
 
 CPP_UI = ${CPP_LUKE} todo_ui.cpp driver.cpp
 H_UI = ${H_LUKE} todo_ui.h driver.cpp

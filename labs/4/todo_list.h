@@ -34,13 +34,14 @@ class TodoList {
   unsigned int GetCapacity();
   void Sort();
   string ToFile();
+  void FreeList();
 
   // Friend functions
   friend ostream& operator << (ostream &out, const TodoList &item_to_write);
 
  private:
   // Private member functions
-  void FreeList();
+
   void Initialize(unsigned int in__current_number_of_slots_in_list);
   void IncreaseCapacity();
   void ShiftElements(unsigned int empty_space_to_fill);

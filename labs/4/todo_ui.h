@@ -8,6 +8,7 @@
 #define BURKE_TODOUI_H_
 
 #include "todo_list.h"
+#include "CinReader.h"
 #include <iostream>
 #include <string>
 using std::cout;
@@ -29,7 +30,7 @@ class TodoUI {
   void ViewSpecificItem();
   void DeleteAllItems();
   CinReader reader;
-    
+  TodoList* todo_list_;  
 };
 
 #endif /* BURKE_TODOITEM_H_ */
