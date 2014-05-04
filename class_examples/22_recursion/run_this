@@ -1,0 +1,48 @@
+clear
+PS3='Please enter your choice: '
+ONE='Run CountDown Iterative'
+ONE_FILE='count_down_iterative'
+TWO='Run CountDown Recursive'
+TWO_FILE='count_down_recursive'
+THREE='Run SumTo Iterative'
+THREE_FILE='sum_to_iterative'
+FOUR='Run SumTo Recursive'
+FOUR_FILE='sum_to_recursive'
+options=("Compile All" "$ONE" "$TWO" "$THREE" "$FOUR" "Clean up Executables" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Compile All")
+            make
+            break
+            ;;
+        "$ONE")
+            make $ONE_FILE
+            ./${ONE_FILE}.run
+            break
+            ;;
+        "$TWO")
+            make $TWO_FILE
+            ./${TWO_FILE}.run
+            break
+            ;;
+        "$THREE")
+            make $THREE_FILE
+            ./${THREE_FILE}.run
+            break
+            ;;
+        "$FOUR")
+            make $FOUR_FILE
+            ./${FOUR_FILE}.run
+            break
+            ;;
+        "Clean up Executables")
+            make clean
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
