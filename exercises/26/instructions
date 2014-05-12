@@ -1,0 +1,51 @@
+Declare and implement a class that provides the following interface EXACTLY.
+Note: This class will be templated
+You will create 2 new files, bst_nodet.h and bst_nodet.tpp
+
+class name: BSTNode
+
+private data members:
+
+	BSTNode<T>* to point to a left child
+	BSTNode<T>* to point to a right child
+	T type to store the data contents of this BSTNode
+
+public function interface:
+
+	default constructor, sets left and right child to NULL and the contents to T()
+	overloaded constructor, T parameter assigned to the contents,
+						    left and right child to NULL
+	
+	destructor, sets left and right child to NULL
+	
+	void SetContents(T)
+	
+	T GetContents() const
+	T& GetContents()
+	
+	void SetLeftChild(BSTNode<T>*)
+	void SetRightChild(BSTNode<T>*)
+	
+	BSTNode<T>* GetLeftChild() const
+	BSTNode<T>*& GetLeftChild()
+	
+	BSTNode<T>* GetRightChild() const
+	BSTNode<T>*& GetRightChild()
+	
+A Makefile has been included with this exercise. Your options are:
+make (Tries to compile your exercise)
+make style (Checks your file for some styling mistakes. Note this does not check
+            variable / function names / all indentation)
+make clean (Removes the executable)
+
+Please note you need to follow programming style guidelines for this exercise.
+
+Exercises having the following will lose 10% per category:
+- Code (such as output statements) not explicitly required
+- Bad Programming Style (Variable Names, Formatting)
+
+NOTE: Exercises that compile with warnings will be treated as if they did not
+      compile. (i.e. they will receive a zero)
+
+Exercises that DO NOT COMPILE will receive a ZERO!
+
