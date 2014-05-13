@@ -29,7 +29,7 @@ int SLNode::contents() const {
   return contents_;
 }
 
-// function which gives the name next_node_ to 
+// function which gives the name next_node_ to
 // the incoming pointer parameter?
 void SLNode::set_next_node(SLNode* next_node) {
   next_node_ = next_node;

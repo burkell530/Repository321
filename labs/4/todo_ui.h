@@ -16,21 +16,33 @@ using std::cin;
 using std::endl;
 using std::string;
 
+// Class declaration
 class TodoUI {
  public:
-  TodoUI(); 
+ 
+  // Constructor declaration
+  TodoUI();
+  
+  // Destructor declaration
   ~TodoUI();
+  
+  // Public member function
   void Menu();
 
  private:
+  // Private member functions
   void EditItem();
   void CreateItem();
   void DeleteItem();
   void ViewAllItems();
   void ViewSpecificItem();
   void DeleteAllItems();
+  
+  // Instance of CinReader
   CinReader reader;
-  TodoList* todo_list_;  
+  
+  // Pointer variable
+  TodoList* todo_list_;
 };
 
 #endif /* BURKE_TODOITEM_H_ */

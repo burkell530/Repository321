@@ -1,64 +1,95 @@
 /*
- * bst_node.h
- *
- *  Created on: May 2, 2014
- *      Author: Luke
- */
+* Lauri Burke
+* Exercise 23, bst_node.h
+* May 5, 2014
+*/
 
-#ifndef BST_NODE_H_
-#define BST_NODE_H_
+#ifndef BURKE_BSTNODE_H_
+#define BURKE_BSTNODE_H_
 
 #include <iostream>
+#include <sstream>
 using std::cout;
+using std::cin;
 using std::endl;
+using std::string;
 
 class BSTNode {
  public:
-  BSTNode(int contents = 0)
-      : contents_(contents),
-        left_child_(NULL),
-        right_child_(NULL) {
-  }
+  // default constructor, sets
+  // left and right child to NULL
+  // and the contents to 0.
+  BSTNode();
 
-  ~BSTNode() {
-    left_child_ = right_child_ = NULL;
-  }
+  // overloaded constructor,
+  // int parameter assigned
+  // to the contents.
+  BSTNode(int in_contents);
 
-  void SetContents(int contents) {
-    contents_ = contents;
-  }
-  int GetContents() const {
-    return contents_;
-  }
-  int& GetContents() {
-    return contents_;
-  }
+  // destructor, sets left and
+  // right child to NULL .
+  ~BSTNode();
 
-  void SetLeftChild(BSTNode *left_child) {
-    left_child_ = left_child;
-  }
-  void SetRightChild(BSTNode *right_child) {
-    right_child_ = right_child;
-  }
+  // Named SetContents.
+  // Has one integer parameter. Sets
+  // the internal integer parameter to
+  // the given parameter's value. Does
+  // not return anything.
+  void SetContents(int in_contents);
 
-  BSTNode* GetLeftChild() const {
-    return left_child_;
-  }
-  BSTNode*& GetLeftChild() {
-    return left_child_;
-  }
+  // Named GetContents.
+  // Returns the value of the internal
+  // integer. It is a const function.
+  int GetContents() const;
 
-  BSTNode* GetRightChild() const {
-    return right_child_;
-  }
-  BSTNode*& GetRightChild() {
-    return right_child_;
-  }
+  // Named GetContents.
+  // Returns the value of the internal
+  // integer. Call by reference.
+  int& GetContents();
+
+  // Named SetLeftChild.
+  // Has one parameter which is
+  // a pointer to the given parameter's
+  // value. Does not return anything.
+  void SetLeftChild(BSTNode* in_left_child);
+
+  // Named SetRightChild.
+  // Has one parameter which is
+  // a pointer to the given parameter's
+  // value. Does not return anything.
+  void SetRightChild(BSTNode* in_right_child);
+
+  // Named GetLeftChild. Returns the
+  // pointer to the left child node. It is
+  // a const function.
+  BSTNode* GetLeftChild() const;
+
+  // Named GetLeftChild. Returns the
+  // pointer to the left child node. It is
+  // call by reference.
+  BSTNode*& GetLeftChild();
+
+  // Named GetRightChild. Returns the
+  // pointer to the right child node. It is
+  // a const function.
+  BSTNode* GetRightChild() const;
+
+  // Named GetRightChild. Returns the
+  // pointer to the right child node. It is
+  // call by reference.
+  BSTNode*& GetRightChild();
 
  private:
-  int contents_;
-  BSTNode *left_child_;
-  BSTNode *right_child_;
+  // BSTNode* to point to a left child.
+  BSTNode* mp_left_child;
+
+  // BSTNode* to point to a right child.
+  BSTNode* mp_right_child;
+
+  // int used to store the data contents
+  // of this BSTNode.
+  int m_contents;
 };
 
-#endif /* BST_NODE_H_ */
+#endif  // BURKE_DLNODE_H_
+

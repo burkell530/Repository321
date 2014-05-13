@@ -50,7 +50,7 @@ class TodoItem {
   // Replaces '@' with '#' and returns modified string
   string Scrub(string in_string_w_symbols);
 
-  // Private member variables:
+  // Private member variables
   string description_;
   int priority_;
   bool completed_;

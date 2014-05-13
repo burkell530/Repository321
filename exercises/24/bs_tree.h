@@ -1,56 +1,61 @@
 /*
- * bs_tree.h
- *
- *  Created on: May 2, 2014
- *      Author: Luke
- */
+* Lauri Burke
+* Exercise 24, bs_tree.h
+* May 6, 2014
+*/
 
-#ifndef BS_TREE_H_
-#define BS_TREE_H_
+#ifndef BURKE_BSTREE_H_
+#define BURKE_BSTREE_H_
 
-#include <cstddef>
-#include <iostream>
-#include <sstream>
-#include <string>
 #include "bst_node.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cstdio>
 using std::cout;
+using std::cin;
 using std::endl;
 using std::string;
 using std::stringstream;
+using std::cerr;
 
 class BSTree {
  public:
-  BSTree()
-      : root_(NULL),
-        size_(0) {
-  }
+  // default constructor
+  // sets the root to NULL
+  // and size to 0.
+  BSTree();
 
-  ~BSTree() {
-    Clear();
-  }
+  // destructor
+  // calls the Clear function.
+  ~BSTree();
 
-  bool Insert(int to_insert) {
-    return Insert(to_insert, root_);
-  }
+  // bool Insert(int),
+  // calls private function
+  // Insert(int, root).
+  bool Insert(int data_to_insert);
 
-  void Clear() {
-    Clear(root_);
-  }
+  // void Clear(), call private
+  // function Clear(root).
+  void Clear();
 
-  unsigned int GetSize() const {
-    return size_;
-  }
+  // unsigned int GetSize() const.
+  unsigned int GetSize() const;
 
-  string InOrder() {
-    return InOrder(root_);
-  }
+  // string InOrder ()
+  // call private function InOrder(root).
+  string InOrder();
 
  private:
-  BSTNode *root_;
-  unsigned int size_;
-  bool Insert(int to_insert, BSTNode*& root);
-  void Clear(BSTNode*& root);
-  string InOrder(BSTNode* root);
+  string InOrder(BSTNode* in_item_to_print);
+
+  void Clear(BSTNode*& in_clear_this);
+
+  bool Insert(int data_to_insert, BSTNode*& in_node);
+
+  BSTNode* m_root;
+
+  unsigned int m_size;
 };
 
-#endif /* BS_TREE_H_ */
+#endif  // BURKE_BSTREE_H_

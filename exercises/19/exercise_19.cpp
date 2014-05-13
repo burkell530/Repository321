@@ -94,7 +94,7 @@ void UnitTest() {
 
   list.InsertHead(5);
   Test(list.size() == 2, "InsertHead(5) & size()");
-  Test(list.ToString() == "5, 20", "ToString()");
+  Test(list.ToString() == "5, 20", "ToString()"); //19
 
   list.Clear();
   Test(list.size() == 0, "Clear() & size()");

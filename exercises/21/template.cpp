@@ -4,10 +4,13 @@
  * Description : Various functions using templates. Please note you can just
  *               write the definitions in here. No need for prototypes.
  */
+#include <iostream>
 #include <string>
 #include <sstream>
 using std::string;
 using std::stringstream;
+using std::cout;
+using std::endl;
 
 /*
  * Create a string containing the contents of an array, each element separated
@@ -23,7 +26,20 @@ using std::stringstream;
  * @return string - A string containing the contents of values separated by the
  *                  specified separator character
  */
-
+template <typename T>
+string PrepareForDisplay(T values[], unsigned int size, char separator = ',') {
+  stringstream ss;
+  ss.setf(std::ios::showpoint|std::ios::fixed);
+  ss.precision(2);
+  for (unsigned int i = 0; i < size; i++) {
+    ss << values[i];
+    if (i < size -1) {
+      ss << separator;
+    }
+  }
+  cout << ss.str();
+  return ss.str();
+}
 
 /*
  * Test to see if an array contains a specified value.
@@ -32,7 +48,17 @@ using std::stringstream;
  * @param T value_to_find - The value to search for within the array
  * @return bool - true if value is found in the array, otherwise false
  */
-
+template <typename T>
+bool HasValue(T values[], unsigned int size, T value_to_find) {
+  bool value_exists = false;
+  for (unsigned int i = 0; i < size; i++) {
+    if (values[i] == value_to_find) {
+      value_exists = true;
+      return value_exists;
+    }
+  }
+  return value_exists;
+}
 
 /*
  * Return the value from an array at a specified index.
@@ -47,7 +73,17 @@ using std::stringstream;
  *               the type and sets error to true. To get a zero representation
  *               you can return T()
  */
-
+template <typename T>
+T ValueAt(T values[], unsigned int size,
+  unsigned int index, bool &error) {
+  if (index >= size) {
+    error = true;
+    return T();
+  } else {
+    error = false;
+    return values[index];
+  }
+}
 
 /*
  * Return the "sum" of the values in the array. Your initial sum should be set
@@ -56,7 +92,14 @@ using std::stringstream;
  * @param unsigned int size - The size of the array
  * @return T - The sum of the values in the array
  */
-
+template <typename T>
+T Sum(T values[], unsigned int size) {
+  T sum = T();
+  for (unsigned int i = 0; i < size; i++) {
+    sum += values[i];
+  }
+  return sum;
+}
 
 /*
  * Swap the positions of two values in an array. The two index values must be
@@ -67,3 +110,19 @@ using std::stringstream;
  * @param unsigned int index2 - The position of the second value to be swapped
  * @return bool - true if the swap was successful, otherwise false
  */
+template <typename T>
+bool SwapValues(T values[], unsigned int size,
+  unsigned int index1, unsigned int index2) {
+  bool swap = false;
+  if (index1 < 0 || index1 > size -1) {
+    return swap;
+  } else if (index2 < 0 || index2 > size -1) {
+    return swap;
+  } else {
+  T temp = values[index1];
+  values[index1] = values[index2];
+  values[index2] = temp;
+  swap = true;
+  return swap;
+  }
+}

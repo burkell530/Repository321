@@ -15,11 +15,14 @@ using std::endl;
 using std::cin;
 using std::string;
 
+
 class TodoList;
 ostream& operator << (ostream &out, const TodoList &item_to_write);
 
+// Class declaration
 class TodoList {
  public:
+ 
   // Constructor declaration
   TodoList();
 
@@ -35,21 +38,20 @@ class TodoList {
   void Sort();
   string ToFile();
   void FreeList();
+  void Initialize(unsigned int in__current_number_of_slots_in_list);
 
   // Friend functions
   friend ostream& operator << (ostream &out, const TodoList &item_to_write);
 
  private:
   // Private member functions
-
-  void Initialize(unsigned int in__current_number_of_slots_in_list);
   void IncreaseCapacity();
   void ShiftElements(unsigned int empty_space_to_fill);
 
   // Pointer to an array
   TodoItem** the_array;
 
-  // Member variables
+  // Private member variables
   unsigned int m_current_number_of_slots_in_list;
   unsigned int m_current_size_of_list;
 };
